@@ -1,14 +1,24 @@
-import { HorsesIndex } from "./HorsesIndex"
+import { HorsesIndex } from "./HorsesIndex";
+import {useState, useEffect } from "react";
+import axios from "axios"
+
 
 export function Content() {
 
-  const horses = [
-    {size: "big", color: "black", price: 8000}
-  ]
+  const [horses, setHorses] = useState([]);
+  
+  const handleHorsesIndex = () => {
+    console.log("handling horses index");
+    axios.get("http://localhost:3000/horses.json").then((response) => {
+      console.log(response.data);
+      setHorses(response.data);
+
+    })
+  }
 
   return (
     <main>
-      <h1>Welcome to React!</h1>
+      <button id="BRB" onClick={handleHorsesIndex}>Big Red Button</button>
       <HorsesIndex horses={horses}/>
     </main>
   )
