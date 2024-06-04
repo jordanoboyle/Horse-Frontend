@@ -2,17 +2,19 @@
 
 export function HorsesIndex(props) {
   return(
-    <di>
+    <div>
       <h1>All dem' Horses</h1>
+      <div id="HorseCards">
       {props.horses.map((horse) => (
         <div key={horse.id}>
-          <h2>{props.horse.breed}</h2> 
-          <img src={props.horse.image_url}/>
-          <p>Size: {props.horse.size}</p>
-          <p>Color: {props.horse.color}</p>
-          <p>price: {props.horse.price}</p>
+          <h2>{horse.breed}</h2> 
+          <img src={horse.image_url}/>
+          <p>Size: {horse.size}</p>
+          <p>Color: {horse.color}</p>
+          <p>price: {horse.price}</p>
         </div>
       ))}
-    </di>
+      </div>
+    </div>
   )
 }

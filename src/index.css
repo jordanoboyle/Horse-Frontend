@@ -1,3 +1,9 @@
 html {
   scroll-behavior: smooth;
 }
+
+#HorseCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+}
