@@ -16,6 +16,8 @@ export function Content() {
     })
   }
 
+  useEffect(handleHorsesIndex, [])
+
   return (
     <main>
       <button id="BRB" onClick={handleHorsesIndex}>Big Red Button</button>

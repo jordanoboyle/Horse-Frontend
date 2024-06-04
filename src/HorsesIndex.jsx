@@ -8,6 +8,7 @@ export function HorsesIndex(props) {
       {props.horses.map((horse) => (
         <div key={horse.id}>
           <h2>{horse.breed}</h2> 
+          <p>{horse.id}</p>
           <img src={horse.image_url}/>
           <p>Size: {horse.size}</p>
           <p>Color: {horse.color}</p>
