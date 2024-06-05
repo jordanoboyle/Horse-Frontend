@@ -1,5 +1,6 @@
 import { HorsesIndex } from "./HorsesIndex";
 import { HorsesNew } from "./HorsesNew";
+import { Modal } from "./Modal";
 import {useState, useEffect } from "react";
 import axios from "axios"
 
@@ -7,13 +8,15 @@ import axios from "axios"
 export function Content() {
 
   const [horses, setHorses] = useState([]);
+  const [isHorseShowVisible, setIsHorseShowVisible] = useState(false)
+
   
   const handleHorsesNew = (theParams) => {
     console.log("handling creating new horse");
     axios.post("http://localhost:3000/horses.json", theParams).then((response) => {
       console.log(response.data)
       setHorses([...horses, response.data]);
-      handleHorsesIndex()
+      
     });
   };
   
@@ -25,6 +28,18 @@ export function Content() {
 
     });
   };
+  
+  const handleShowHorse = () => {
+    console.log("showing this horse data");
+    setIsHorseShowVisible(true);
+  }
+  const handleClose = () => {
+    console.log("closing modal");
+    setIsHorseShowVisible(false)
+  }
+
+
+
   useEffect(handleHorsesIndex, []);
   
   return (
@@ -32,7 +47,10 @@ export function Content() {
       <HorsesNew onCreateHorse={handleHorsesNew} />
       <br/>
       <button id="BRB" onClick={handleHorsesIndex}>Big Red Button</button>
-      <HorsesIndex horses={horses} />
+      <HorsesIndex horses={horses} onShowHorse={handleShowHorse}/>
+      <Modal show={isHorseShowVisible} onClose={handleClose}>
+        This is a Test
+      </Modal >
     </main>
   )
 }
