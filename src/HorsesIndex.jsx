@@ -10,9 +10,9 @@ export function HorsesIndex(props) {
           <h2>{horse.breed}</h2> 
           <p>{horse.id}</p>
           <img id="HorseImg" src={horse.image_url}/>
-          <p>Size: {horse.size}</p>
+          <p>Build: {horse.build}</p>
           <p>Color: {horse.color}</p>
-          <p>price: {horse.price}</p>
+          <p>Price: {horse.price}</p>
         </div>
       ))}
       </div>

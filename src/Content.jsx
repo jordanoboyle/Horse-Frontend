@@ -16,12 +16,18 @@ export function Content() {
 
     })
   }
-
   useEffect(handleHorsesIndex, [])
+
+  const handleHorsesNew = (params, successCallback) => {
+    console.log("handling creating new horse");
+    axios.post("http://localhost:3000/horses.json", params).then(response => {
+      setHorses([...horses, response.data]);
+    })
+  }
 
   return (
     <main>
-      <HorsesNew/>
+      <HorsesNew onHorsesNew={handleHorsesNew}/>
       <br/>
       <button id="BRB" onClick={handleHorsesIndex}>Big Red Button</button>
       <HorsesIndex horses={horses}/>

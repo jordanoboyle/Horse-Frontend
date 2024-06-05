@@ -1,20 +1,17 @@
 import axios from "axios"
 
 export function HorsesNew(props) {
-
-  const handleNewHorse = (event) => {
-    console.log("handling creating new horse")
+  const handleSubmit = (event) => {
+    console.log("handling submit of new horse")
     event.preventDefault();
-    const params = new FormData(event.target)
-    axios.post("http://localhost:3000/horses.json", params).then(response => {
-      console.log(response.data)
-    })
-  }
+    const params = new FormData(event.target);
+    props.onHorsesNew(params, () => event.target.resset())
+  };
 
   return (
     <div>
       <h1>Add Horse to Collection</h1>
-      <form onSubmit={handleNewHorse}>
+      <form onSubmit={handleSubmit}>
         <ul className="createWrapper">
           <li className="createRow">
             <label htmlFor="breed">Breed type:</label>
