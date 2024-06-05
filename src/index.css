@@ -2,13 +2,13 @@ html {
   scroll-behavior: smooth;
 }
 
-#HorseCards {
+.HorseCards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 50px;
 }
 
-#HorseImg {
+.itemImg {
   width: 250px;
   height: 275px;
   object-fit: cover;

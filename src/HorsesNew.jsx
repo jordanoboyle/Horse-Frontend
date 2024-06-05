@@ -2,48 +2,44 @@ import axios from "axios"
 
 export function HorsesNew(props) {
   const handleSubmit = (event) => {
-    console.log("handling submit of new horse")
     event.preventDefault();
+    console.log("handling submit of new horse")
     const params = new FormData(event.target);
-    props.onHorsesNew(params, () => event.target.resset())
+    props.onCreateHorse(params)
+    event.target.reset()
   };
 
   return (
     <div>
       <h1>Add Horse to Collection</h1>
-      <form onSubmit={handleSubmit}>
-        <ul className="createWrapper">
-          <li className="createRow">
-            <label htmlFor="breed">Breed type:</label>
-            <input type="text" name="breed" />
-          </li>
-          <br/>
-          <br/>
-          <li className="createRow">
-            <label htmlFor="color">Horse Color:</label>
-            <input type="text" name="color" />
-          </li>
-          <br/>
-          <br/>
-          <li className="createRow">
-            <label htmlFor="build">Build: </label> 
-            <input type="text" name="build" />
-          </li>
-          <br/>
-          <br/>
-          <li className="createRow">
-            <label htmlFor="price">Price: </label>
-            <input type="number" name="price" />
-          </li>
-          <br/>
-          <br/>
-          <li className="createRow">
-            <label htmlFor="image_url">Image_URL: </label>
-            <input type="url" name="image_url" />
-          </li>
-        </ul>
-        <button type="submit">Submit Horse Information</button>
-      </form>
+        <div className="createWrapper">
+          <form onSubmit={handleSubmit}>
+            <div className="createRow">
+              Breed type: <input name="breed" type="text" />
+            </div>
+            <br/>
+            <br/>
+            <div className="createRow">
+              Horse Color: <input name="color" type="text" />
+            </div>
+            <br/>
+            <br/>
+            <div className="createRow">
+              Build: <input name="build" type="text" />
+            </div>
+            <br/>
+            <br/>
+            <div className="createRow">
+              Price: <input name="price" type="text" />
+            </div>
+            <br/>
+            <br/>
+            <div className="createRow">
+              Image_URL: <input name="image_url" type="text" />
+            </div>
+            <button type="submit">Submit Horse Information </button>
+          </form>
+        </div>
     </div>
   )
 }
