@@ -1,4 +1,5 @@
 import { HorsesIndex } from "./HorsesIndex";
+import { HorsesNew } from "./HorsesNew";
 import {useState, useEffect } from "react";
 import axios from "axios"
 
@@ -20,6 +21,8 @@ export function Content() {
 
   return (
     <main>
+      <HorsesNew/>
+      <br/>
       <button id="BRB" onClick={handleHorsesIndex}>Big Red Button</button>
       <HorsesIndex horses={horses}/>
     </main>

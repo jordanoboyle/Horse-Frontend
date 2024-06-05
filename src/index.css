@@ -13,3 +13,37 @@ html {
   height: 275px;
   object-fit: cover;
 }
+
+/* HorsesNew Form Styling */
+.createWrapper {
+  background-color: whitesmoke;
+  list-style-type: none;
+  padding: 0;
+  border-radius: 3px;
+}
+
+.createRow {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em;
+}
+
+.createRow>label {
+  padding: .5em 1em .5em 0;
+  flex: 1;
+}
+
+.createRow>input {
+  flex: 2;
+}
+
+.createRow>input,
+.createRow>button {
+  padding: .5em;
+}
+
+.createRow>button {
+  background: gray;
+  color: white;
+  border: 0;
+}
