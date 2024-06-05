@@ -7,3 +7,9 @@ html {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 50px;
 }
+
+#HorseImg {
+  width: 250px;
+  height: 275px;
+  object-fit: cover;
+}
