@@ -1,5 +1,6 @@
 import { HorsesIndex } from "./HorsesIndex";
 import { HorsesNew } from "./HorsesNew";
+import { HorseShow } from "./HorseShow";
 import { Modal } from "./Modal";
 import {useState, useEffect } from "react";
 import axios from "axios"
@@ -9,6 +10,7 @@ export function Content() {
 
   const [horses, setHorses] = useState([]);
   const [isHorseShowVisible, setIsHorseShowVisible] = useState(false)
+  const [currentHorse, setCurrenHorse]  = useState({})
 
   
   const handleHorsesNew = (theParams) => {
@@ -49,7 +51,8 @@ export function Content() {
       <button id="BRB" onClick={handleHorsesIndex}>Big Red Button</button>
       <HorsesIndex horses={horses} onShowHorse={handleShowHorse}/>
       <Modal show={isHorseShowVisible} onClose={handleClose}>
-        This is a Test
+        Building In CONTENT
+        <HorseShow/>
       </Modal >
     </main>
   )

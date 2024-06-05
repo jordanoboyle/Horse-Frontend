@@ -5,15 +5,15 @@ export function HorsesIndex(props) {
     <div>
       <h1>All dem' Horses</h1>
       <div className="HorseCards">   
-        {props.horses.map(item => (
-          <div key={item.id}>
-            <p>{item.id}</p>
-            <h2>{item.breed}</h2> 
-            <img className="itemImg" src={item.image_url} />
-            <p>Build: {item.build}</p>
-            <p>Color: {item.color}</p>
-            <p>Price: {item.price}</p>
-            <button onClick={props.onShowHorse}>More Information</button>
+        {props.horses.map(horse => (
+          <div key={horse.id}>
+            <p>{horse.id}</p>
+            <h2>{horse.breed}</h2> 
+            <img className="itemImg" src={horse.image_url} />
+            <p>Build: {horse.build}</p>
+            <p>Color: {horse.color}</p>
+            <p>Price: {horse.price}</p>
+            <button onClick={() => props.onShowHorse(horse)}>More Information</button>
           </div>
         ))}
       </div>
