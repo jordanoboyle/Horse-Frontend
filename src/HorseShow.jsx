@@ -14,8 +14,16 @@ export function HorseShow(props) {
       console.log(response.data);
       window.location.href = "/";
     });
+  }
 
-
+  //make delete button
+  //attach button submission to function const....
+  //create horse to delete
+  //mimic httpie delete request using JS
+  //modify front end basically to show result. 
+  const submitDeleteHorse = (event) => {
+    console.log("deleting this horse record")
+    axios.delete("http://localhost:3000/horses/59.json");
   }
 
   return (
@@ -35,7 +43,7 @@ export function HorseShow(props) {
       <br/>
       <br/>
       <br/>
-      <button>Delete This Horse</button>
+      <button onClick={submitDeleteHorse}>Delete This Horse</button>
     </div>
   )
 }
