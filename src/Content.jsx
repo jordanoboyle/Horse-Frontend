@@ -10,7 +10,7 @@ export function Content() {
 
   const [horses, setHorses] = useState([]);
   const [isHorseShowVisible, setIsHorseShowVisible] = useState(false)
-  const [currentHorse, setCurrenHorse]  = useState({})
+  const [currentHorse, setCurrentHorse]  = useState({})
 
   
   const handleHorsesNew = (theParams) => {
@@ -31,8 +31,9 @@ export function Content() {
     });
   };
   
-  const handleShowHorse = () => {
+  const handleShowHorse = (horse) => {
     console.log("showing this horse data");
+    setCurrentHorse(horse);
     setIsHorseShowVisible(true);
   }
   const handleClose = () => {
@@ -51,8 +52,8 @@ export function Content() {
       <button id="BRB" onClick={handleHorsesIndex}>Big Red Button</button>
       <HorsesIndex horses={horses} onShowHorse={handleShowHorse}/>
       <Modal show={isHorseShowVisible} onClose={handleClose}>
-        Building In CONTENT
-        <HorseShow/>
+        From Content
+        <HorseShow horse={currentHorse}/>
       </Modal >
     </main>
   )

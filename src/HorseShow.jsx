@@ -1,19 +1,34 @@
+import axios from "axios"
+
 export function HorseShow(props) {
   console.log(props);
   //make a form
   //submit a form
   //mimic httpie web request using JS
   //modify frontend to show changes
+  const submitUpdateHorse = (event) => {
+    console.log("updating the horse");
+    event.preventDefault();
+    const params = new FormData(event.target); //this pulls the data from the form (react magic)
+    axios.patch("http://localhost:3000/horses/46.json", params).then((response) => {
+      console.log(response.data);
+      window.location.href = "/";
+    });
+
+
+  }
 
   return (
     <div>
-      <form>
-        <p>Breed: <input type="text" /></p>
-        <p>Color: <input type="text" /></p>
-        <p>Price: <input type="text" /></p>
-        <p>Build: <input type="text" /></p>
-        <p>Image_url: <input type="text" /></p>
-        <button type="submit">Update Horse Information</button>
+        <p>HORSE ID: {props.horse.id}</p>
+        <p>HORSE BREED: {props.horse.breed}</p>
+      <form onSubmit={submitUpdateHorse}>
+        <p>Breed: <input type="text" name="breed" defaultValue={props.horse.breed} /></p>
+        <p>Color: <input type="text" name="color" defaultValue={props.horse.color} /></p>
+        <p>Price: <input type="text" name="price" defaultValue={props.horse.price} /></p>
+        <p>Build: <input type="text" name="build" defaultValue={props.horse.build} /></p>
+        <p>Image_url: <input type="text" name="image_url" defaultValue={props.horse.image_url} /></p>
+        <button type="submit" value="update horse">Update Horse Information</button>
       </form>
     </div>
   )
