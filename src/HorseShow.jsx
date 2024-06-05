@@ -10,7 +10,7 @@ export function HorseShow(props) {
     console.log("updating the horse");
     event.preventDefault();
     const params = new FormData(event.target); //this pulls the data from the form (react magic)
-    axios.patch("http://localhost:3000/horses/46.json", params).then((response) => {
+    axios.patch(`http://localhost:3000/horses/${props.horse.id}.json`, params).then((response) => {
       console.log(response.data);
       window.location.href = "/";
     });
@@ -30,6 +30,12 @@ export function HorseShow(props) {
         <p>Image_url: <input type="text" name="image_url" defaultValue={props.horse.image_url} /></p>
         <button type="submit" value="update horse">Update Horse Information</button>
       </form>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <button>Delete This Horse</button>
     </div>
   )
 }
