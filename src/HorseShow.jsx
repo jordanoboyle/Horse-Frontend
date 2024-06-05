@@ -21,9 +21,12 @@ export function HorseShow(props) {
   //create horse to delete
   //mimic httpie delete request using JS
   //modify front end basically to show result. 
-  const submitDeleteHorse = (event) => {
+  const submitDeleteHorse = () => {
     console.log("deleting this horse record")
-    axios.delete("http://localhost:3000/horses/59.json");
+    axios.delete(`http://localhost:3000/horses/${props.horse.id}.json`).then((response) => {
+      console.log(response.data);
+      window.location.href = "/"
+    })
   }
 
   return (
