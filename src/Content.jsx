@@ -62,11 +62,13 @@ export function Content() {
     window.location.href ='/'
   }
   
+
   const handleShowHorse = (horse) => {
     console.log("showing this horse data");
     setCurrentHorse(horse);
     setIsHorseShowVisible(true);
   }
+
   const handleClose = () => {
     console.log("closing modal");
     setIsHorseShowVisible(false)
@@ -80,10 +82,8 @@ export function Content() {
     <main>
       <HorsesNew onCreateHorse={handleHorsesNew} />
       <br/>
-      <button id="BRB" onClick={handleHorsesIndex}>Big Red Button</button>
       <HorsesIndex horses={horses} onShowHorse={handleShowHorse}/>
       <Modal show={isHorseShowVisible} onClose={handleClose}>
-        From Content
         <HorseShow horse={currentHorse} onUpdateHorse={handleHorseUpdate} onDeleteHorse={handleDestroyHorse}/>
       </Modal >
     </main>
