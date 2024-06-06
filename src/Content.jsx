@@ -54,8 +54,12 @@ export function Content() {
 
   }
 
-  const handleDestroyHorse = () => {
+  const handleDestroyHorse = (id) => {
     console.log("deleting horse from content");
+    axios.delete(`http://localhost:3000/horses/${id}.json`).then((response) => {
+      console.log(response.data);
+    })
+    window.location.href ='/'
   }
   
   const handleShowHorse = (horse) => {

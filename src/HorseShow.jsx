@@ -25,11 +25,7 @@ export function HorseShow(props) {
   //modify front end basically to show result. 
   const submitDeleteHorse = () => {
     console.log("deleting this horse record")
-    axios.delete(`http://localhost:3000/horses/${props.horse.id}.json`).then((response) => {
-      console.log(response.data);
-      props.onDeleteHorse()
-      // window.location.href = "/"
-    })
+    props.onDeleteHorse(props.horse.id)
   }
 
   return (
