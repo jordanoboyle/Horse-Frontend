@@ -27,7 +27,8 @@ export function HorseShow(props) {
     console.log("deleting this horse record")
     axios.delete(`http://localhost:3000/horses/${props.horse.id}.json`).then((response) => {
       console.log(response.data);
-      window.location.href = "/"
+      props.onDeleteHorse()
+      // window.location.href = "/"
     })
   }
 

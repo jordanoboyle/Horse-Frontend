@@ -36,7 +36,7 @@ export function Content() {
   //transfer the data from through props "event up" if you will (params and id of create)
   //make sure to close the modal with handleClose()
   // write JS logic to update setHorses
-  const handleHorseCreate = (theParams, id) => {
+  const handleHorseUpdate = (theParams, id) => {
     console.log("horse create from content");
     axios.patch(`http://localhost:3000/horses/${id}.json`, theParams).then((response) => {
       console.log(response.data);
@@ -52,6 +52,10 @@ export function Content() {
       //resets to almost the same, but the one with matching id is replaced and reloaded.
     })
 
+  }
+
+  const handleDestroyHorse = () => {
+    console.log("deleting horse from content");
   }
   
   const handleShowHorse = (horse) => {
@@ -76,7 +80,7 @@ export function Content() {
       <HorsesIndex horses={horses} onShowHorse={handleShowHorse}/>
       <Modal show={isHorseShowVisible} onClose={handleClose}>
         From Content
-        <HorseShow horse={currentHorse} onUpdateHorse={handleHorseCreate}/>
+        <HorseShow horse={currentHorse} onUpdateHorse={handleHorseUpdate} onDeleteHorse={handleDestroyHorse}/>
       </Modal >
     </main>
   )
