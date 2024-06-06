@@ -6,14 +6,16 @@ export function HorseShow(props) {
   //submit a form
   //mimic httpie web request using JS
   //modify frontend to show changes
+  ///////////
+  // we need to pass the params/event up to handleCreateHorse
+  // to do this we need onUpdateHorse passing params and id of horse
   const submitUpdateHorse = (event) => {
     console.log("updating the horse");
     event.preventDefault();
     const params = new FormData(event.target); //this pulls the data from the form (react magic)
-    axios.patch(`http://localhost:3000/horses/${props.horse.id}.json`, params).then((response) => {
-      console.log(response.data);
-      window.location.href = "/";
-    });
+    props.onUpdateHorse(params, props.horse.id);
+    console.log("passing horse data to Content")
+    
   }
 
   //make delete button
